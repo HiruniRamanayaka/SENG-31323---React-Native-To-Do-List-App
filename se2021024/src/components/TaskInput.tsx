@@ -1,22 +1,26 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, TextInput, Button, Text, TouchableOpacity, Alert } from 'react-native'
+import { ScrollView, StyleSheet, View, TextInput, Button, Text, TouchableOpacity, Alert } from 'react-native'
 import { COLORS } from '../constants/Theme';
-import { saveTask } from '../services/Storage';
+import { useTaskStore } from '../stores/useTaskStore';
 
 const TaskInput = () => {
     const [title, setTitle] = useState('');
     const [about, setAbout] = useState('');
 
-    const handleSave = async () => {
-        try{
-            await saveTask({title, about});
-            Alert.alert('Success', 'Task saved successfully');
-            setTitle('');
-            setAbout('');
-        } catch (e) {
-            Alert.alert("Error, e.message")
+    const addTask = useTaskStore((state) => state.addTask);
+
+    const handleSave = () => {
+        if (!title || !about) {
+        Alert.alert('Validation', 'Please fill out both fields.');
+        return;
         }
-    }
+
+        addTask({ title, about });
+        setTitle('');
+        setAbout('');
+        Alert.alert('Success', 'Task saved!');
+    };
+
   return (
     <View style={styles.container}>
         <View style={styles.inputContainer}>
@@ -75,11 +79,26 @@ const styles = StyleSheet.create({
         marginBottom: 8,
         justifyContent: 'center',
         alignItems: 'center',
-        height: 96, // same height as both inputs together (adjust if needed)
+        height: 96, 
       },
       buttonText: {
         fontSize: 28,
         fontWeight: 'bold',
         color: '#FFA500',
+      },
+      taskItem: {
+        backgroundColor: '#333',
+        padding: 12,
+        marginBottom: 8,
+        borderRadius: 8,
+      },
+      taskTitle: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: '#fff',
+      },
+      taskAbout: {
+        fontSize: 14,
+        color: '#aaa',
       },
   });
