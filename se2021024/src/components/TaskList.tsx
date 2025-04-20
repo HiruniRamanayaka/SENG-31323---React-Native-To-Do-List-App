@@ -2,6 +2,7 @@ import React from 'react'
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { useTaskStore } from '../stores/useTaskStore';
 import { COLORS } from '../constants/theme';
+import DeleteTaskButton from './DeleteTaskButton';
 
 const TaskList = () => {
   const tasks = useTaskStore((state) => state.tasks);
@@ -9,12 +10,21 @@ const TaskList = () => {
   return (
     <ScrollView style={styles.listContainer}> 
       {tasks.length === 0 ? (
-        <Text style={styles.emptyText}>No tasks</Text>
+        <View style={styles.borderText}>
+            <Text style={styles.topBorder}></Text>
+            <Text style={styles.emptyText}>No tasks</Text>
+            <Text style={styles.bottomBorder}></Text>
+        </View>
         ) : (
           tasks.map((task, index) => (
             <View key={index} style={styles.taskItem}>
-              <Text style={styles.taskTitle}>{task.title}</Text>
-              <Text style={styles.taskAbout}>{task.about}</Text>
+              <View style={styles.taskItemContainer}>
+                <Text style={styles.taskTitle}>{task.title}</Text>
+                <Text style={styles.taskAbout}>{task.about}</Text>
+              </View>
+              <View style={styles.deleteButton}>
+                <DeleteTaskButton index={index} />
+              </View>
             </View>
           ))
       )}
@@ -30,24 +40,53 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   taskItem: {
+    flexDirection: 'row',
     backgroundColor: '#333',
     padding: 12,
     marginBottom: 12,
-    borderRadius: 8,
+    borderColor: '#A35709', 
+    borderWidth: 2,         
+    borderRadius: 6,        
+    textAlign: 'center',
+  },
+  taskItemContainer: {
+    flex: 1,
+    marginRight: 8,
   },
   taskTitle: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#F0E3CA',
   },
   taskAbout: {
     fontSize: 14,
-    color: '#aaa',
+    color: '#F0E3CA',
+  },
+  deleteButton: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 5,           
+    marginBottom: 8,
+  },
+  borderText: {
+    marginTop: 30,
+    alignItems: 'center',
+  },
+  topBorder: {
+    borderBottomColor: '#A35709',
+    borderColor: '#FFA500', 
+    borderTopWidth: 2,
+    width: 40,      
+  },
+  bottomBorder: {
+    borderBottomColor: '#A35709',
+    borderColor: '#FFA500', 
+    borderBottomWidth: 2,
+    width: 40,             
   },
   emptyText: {
     textAlign: 'center',
-    marginTop: 20,
-    fontSize: 16,
-    color: '#888',
+    fontSize: 18,
+    color: 'white',
   },
 });

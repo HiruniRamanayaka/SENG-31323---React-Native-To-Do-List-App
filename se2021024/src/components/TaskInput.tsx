@@ -18,7 +18,7 @@ const TaskInput = () => {
         addTask({ title, about });
         setTitle('');
         setAbout('');
-        Alert.alert('Success', 'Task saved!');
+        //Alert.alert('Success', 'Task saved!');
     };
 
   return (
@@ -27,14 +27,14 @@ const TaskInput = () => {
             <TextInput 
                 style={styles.input}
                 placeholder="Title..."
-                placeholderTextColor="#fff"
+                placeholderTextColor="#888"
                 value={title}
                 onChangeText={setTitle}
             />
             <TextInput 
                 style={styles.input}
                 placeholder="About..."
-                placeholderTextColor="#fff"
+                placeholderTextColor="#888"
                 value={about}
                 onChangeText={setAbout}
             />
@@ -60,19 +60,17 @@ const styles = StyleSheet.create({
     },
     input: {
         fontSize: 16,
-        backgroundColor: '#1F1B1E',
-        borderBottomColor: '#A35709',
-        borderColor: '#FFA500', 
+        backgroundColor: '#242320',
+        borderColor: '#FF8303',
         borderWidth: 1,         
         borderRadius: 6,        
         padding: 10,           
         marginBottom: 8,
-        color: '#fff',
+        color: '#F0E3CAA3',
     },
     customButton: {
         backgroundColor: COLORS.background,
-        borderBottomColor: '#A35709',
-        borderColor: '#FFA500', 
+        borderColor: '#FF8303',
         borderWidth: 1,         
         borderRadius: 6,        
         padding: 10,           
@@ -84,7 +82,7 @@ const styles = StyleSheet.create({
       buttonText: {
         fontSize: 28,
         fontWeight: 'bold',
-        color: '#FFA500',
+        color: '#FF8303',
       },
       taskItem: {
         backgroundColor: '#333',

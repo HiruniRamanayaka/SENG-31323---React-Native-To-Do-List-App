@@ -10,6 +10,7 @@ type Task = {
 type TaskState = {
   tasks: Task[];
   addTask: (task: Task) => void;
+  deleteTask: (index: number) => void; 
   clearTasks: () => void;
 };
 
@@ -17,10 +18,19 @@ export const useTaskStore = create<TaskState>()(
   persist(
     (set) => ({
       tasks: [],
+      // Adding tasks
       addTask: (task) =>
         set((state) => ({
           tasks: [...state.tasks, task],
         })),
+
+      // Adding tasks
+      deleteTask: (index: number) =>
+        set((state) => ({
+            tasks: state.tasks.filter((_, i) => i !== index),
+        })),
+
+      // Clearing tasks
       clearTasks: () => set({ tasks: [] }),
     }),
     {
