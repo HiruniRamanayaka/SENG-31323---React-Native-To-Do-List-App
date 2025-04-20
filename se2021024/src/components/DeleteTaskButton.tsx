@@ -6,7 +6,7 @@ type Props = {
     index: number;
   };
 
-  const DeleteTaskButton: React.FC<Props> = ({ index }) => {
+const DeleteTaskButton: React.FC<Props> = ({ index }) => {
     const deleteTask = useTaskStore((state => state.deleteTask));
     const [modalVisible, setModalVisible] = useState(false);
 

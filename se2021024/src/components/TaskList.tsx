@@ -1,11 +1,14 @@
 import React from 'react'
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { useTaskStore } from '../stores/useTaskStore';
 import { COLORS } from '../constants/theme';
 import DeleteTaskButton from './DeleteTaskButton';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import InfoTaskButton from './InfoTaskButton';
 
 const TaskList = () => {
   const tasks = useTaskStore((state) => state.tasks);
+  const [selectedTaskIndex, setSelectedTaskIndex] = React.useState<number | null>(null);
 
   return (
     <ScrollView style={styles.listContainer}> 
@@ -17,13 +20,37 @@ const TaskList = () => {
         </View>
         ) : (
           tasks.map((task, index) => (
-            <View key={index} style={styles.taskItem}>
-              <View style={styles.taskItemContainer}>
-                <Text style={styles.taskTitle}>{task.title}</Text>
-                <Text style={styles.taskAbout}>{task.about}</Text>
+            <View key={index}>
+              <View  style={styles.taskItem}>
+                <View style={styles.taskItemContainer}>
+                  <TouchableOpacity onPress={() => setSelectedTaskIndex(index === selectedTaskIndex ? null : index)}>
+                    <Text style={styles.taskTitle}>{task.title}</Text>
+                    <Text style={styles.taskAbout}>{task.about}</Text>
+                  </TouchableOpacity>
+                </View>
+                <View style={styles.deleteButton}>
+                  <DeleteTaskButton index={index} />
+                </View>
               </View>
-              <View style={styles.deleteButton}>
-                <DeleteTaskButton index={index} />
+
+              {/* share, info, edit buttons*/}
+              <View>
+                {selectedTaskIndex === index && (
+                <View style={styles.buttonsRow}>
+                  <TouchableOpacity style={styles.iconButton}>
+                    <Ionicons name="share-social-outline" size={20} color="#fff" />
+                  </TouchableOpacity>
+                  {/* <TouchableOpacity style={styles.iconButton} onPress={() => setInfoIndex(index)}>
+                    <Ionicons name="information-outline" size={20} color="#fff" />
+                  </TouchableOpacity> */}
+                  <View>
+                    <InfoTaskButton index={index}/>
+                  </View>
+                  <TouchableOpacity style={styles.iconButton}>
+                    <Ionicons name="pencil-outline" size={20} color="#fff" />
+                  </TouchableOpacity>
+                </View>
+                )}
               </View>
             </View>
           ))
@@ -37,7 +64,6 @@ export default TaskList
 const styles = StyleSheet.create({
   listContainer: {
     marginTop: 16,
-    paddingHorizontal: 16,
   },
   taskItem: {
     flexDirection: 'row',
@@ -89,4 +115,19 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: 'white',
   },
+  buttonsRow: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    marginBottom: 15,
+  },
+  iconButton: {
+    backgroundColor: '#1F1E1B',
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderColor: '#A35709', 
+    borderWidth: 1,     
+    borderRadius: 6,
+    marginLeft: 6,
+  },
+  
 });
