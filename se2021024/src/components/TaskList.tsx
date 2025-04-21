@@ -6,6 +6,7 @@ import DeleteTaskButton from './DeleteTaskButton';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import InfoTaskButton from './InfoTaskButton';
 import EditTaskButton from './EditTaskButton';
+import ShareTaskButton from './ShareTaskButton';
 
 const TaskList = () => {
   const tasks = useTaskStore((state) => state.tasks);
@@ -38,9 +39,9 @@ const TaskList = () => {
               <View>
                 {selectedTaskIndex === index && (
                 <View style={styles.buttonsRow}>
-                  <TouchableOpacity style={styles.iconButton}>
-                    <Ionicons name="share-social-outline" size={20} color="#fff" />
-                  </TouchableOpacity>
+                  <View>
+                    <ShareTaskButton index={index}/>
+                  </View>
                   <View>
                     <InfoTaskButton index={index}/>
                   </View>

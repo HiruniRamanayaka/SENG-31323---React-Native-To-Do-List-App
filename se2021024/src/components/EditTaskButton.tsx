@@ -50,11 +50,11 @@ const EditTaskButton: React.FC<Props> = ({ index }) => {
                         
                     />
                     <View style={styles.buttonContainer}>
-                        <TouchableOpacity style={styles.saveButton} onPress={handleSave}>
-                            <Text style={styles.buttonText}>Save</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.cancelButton} onPress={() => setModalVisible(false)}>
+                        <TouchableOpacity style={styles.buttons} onPress={() => setModalVisible(false)}>
                             <Text style={styles.buttonText}>Cancel</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.buttons} onPress={handleSave}>
+                            <Text style={styles.buttonText}>Save</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -85,6 +85,7 @@ const styles = StyleSheet.create({
       backgroundColor: 'rgba(0,0,0,0.6)',
       justifyContent: 'flex-end',
       alignItems: 'center',
+      margin: 10,
     },
     modalContainer: {
       backgroundColor: '#333',
@@ -109,30 +110,25 @@ const styles = StyleSheet.create({
       borderRadius: 6,
       marginBottom: 10,
       padding: 8,
-      height: 340,
+      height: 320,
       textAlignVertical: 'top',
       textAlign: 'left',
     },
     buttonContainer: {
       flexDirection: 'row',
-      justifyContent: 'space-between',
-      width: '100%',
+      justifyContent: 'center',
+      alignItems: 'center',
       gap: '10',
     },
-    saveButton: {
-      flex: 1,
-      backgroundColor: '#A35709',
-      padding: 10,
+    buttons: {
+      width: 100,
+      backgroundColor: '#1F1E1B',
+      borderColor: '#A35709',
+      borderWidth: 1,
       borderRadius: 6,
+      padding: 6,
       alignItems: 'center',
       marginBottom: 8,
-    },
-    cancelButton: {
-      flex: 1,
-      backgroundColor: '#444',
-      padding: 10,
-      borderRadius: 6,
-      alignItems: 'center',
     },
     buttonText: {
       color: 'white',
