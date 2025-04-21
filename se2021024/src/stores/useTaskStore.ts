@@ -11,6 +11,7 @@ type TaskState = {
   tasks: Task[];
   addTask: (task: Task) => void;
   deleteTask: (index: number) => void; 
+  updateTask: (index: number, updatedTask: Task) => void; 
   clearTasks: () => void;
 };
 
@@ -29,6 +30,14 @@ export const useTaskStore = create<TaskState>()(
         set((state) => ({
             tasks: state.tasks.filter((_, i) => i !== index),
         })),
+
+      // Update tasks
+      updateTask: (index: number, updatedTask: Task) =>
+        set((state) => {
+          const updatedTasks = [...state.tasks];
+          updatedTasks[index] = updatedTask;
+          return { tasks: updatedTasks };
+        }),
 
       // Clearing tasks
       clearTasks: () => set({ tasks: [] }),

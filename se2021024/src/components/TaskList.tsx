@@ -5,6 +5,7 @@ import { COLORS } from '../constants/theme';
 import DeleteTaskButton from './DeleteTaskButton';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import InfoTaskButton from './InfoTaskButton';
+import EditTaskButton from './EditTaskButton';
 
 const TaskList = () => {
   const tasks = useTaskStore((state) => state.tasks);
@@ -40,15 +41,12 @@ const TaskList = () => {
                   <TouchableOpacity style={styles.iconButton}>
                     <Ionicons name="share-social-outline" size={20} color="#fff" />
                   </TouchableOpacity>
-                  {/* <TouchableOpacity style={styles.iconButton} onPress={() => setInfoIndex(index)}>
-                    <Ionicons name="information-outline" size={20} color="#fff" />
-                  </TouchableOpacity> */}
                   <View>
                     <InfoTaskButton index={index}/>
                   </View>
-                  <TouchableOpacity style={styles.iconButton}>
-                    <Ionicons name="pencil-outline" size={20} color="#fff" />
-                  </TouchableOpacity>
+                  <View>
+                    <EditTaskButton index={index}/>
+                  </View>
                 </View>
                 )}
               </View>

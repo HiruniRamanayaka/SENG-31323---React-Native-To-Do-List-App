@@ -18,7 +18,7 @@ export default HomeScreen
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: COLORS.background, // this makes the whole screen black
+    backgroundColor: COLORS.background, 
     padding: 16,
   },
 });
