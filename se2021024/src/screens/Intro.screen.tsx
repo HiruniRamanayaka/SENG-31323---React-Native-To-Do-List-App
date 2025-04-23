@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react'
-import { View, Text, ImageBackground, StyleSheet } from 'react-native' 
+import React, {useEffect} from 'react'
+import {ImageBackground, StyleSheet } from 'react-native' 
 
 const IntroScreen = ({navigation}: any) => {
     useEffect(() => {
         const timer = setTimeout(() => {
             navigation.replace('Home')                      //Go to Home Screen after 2 seconds
-        }, 10000);
+        }, 5000);
         return () => clearTimeout(timer);                        // Cancel the timer if screen is closed early
     }, [])
 

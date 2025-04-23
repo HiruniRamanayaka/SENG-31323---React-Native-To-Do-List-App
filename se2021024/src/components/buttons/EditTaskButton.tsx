@@ -1,13 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   TextInput,
   TouchableOpacity,
   Text,
   StyleSheet,
-  Alert,
   Modal,
   View,
 } from 'react-native';
+
 import {useTaskStore} from '../../stores/useTaskStore';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -16,12 +16,12 @@ type Props = {
 };
 
 const EditTaskButton: React.FC<Props> = ({index}) => {
-  const [modalVisible, setModalVisible] = React.useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
   const {tasks, updateTask} = useTaskStore();
   const task = tasks[index];
 
-  const [title, setTitle] = React.useState(task.title);
-  const [about, setAbout] = React.useState(task.about);
+  const [title, setTitle] = useState(task.title);
+  const [about, setAbout] = useState(task.about);
 
   const handleSave = () => {
     updateTask(index, {title, about});

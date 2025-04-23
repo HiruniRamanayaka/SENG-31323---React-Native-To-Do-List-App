@@ -1,16 +1,11 @@
 import React, {useState} from 'react';
 import {
-  ScrollView,
   StyleSheet,
   View,
   TextInput,
-  Button,
-  Text,
-  TouchableOpacity,
-  Alert,
 } from 'react-native';
+
 import {COLORS} from '../constants/Theme';
-import {useTaskStore} from '../stores/useTaskStore';
 import AddTaskButton from './buttons/AddTaskButton';
 
 const TaskInput = () => {

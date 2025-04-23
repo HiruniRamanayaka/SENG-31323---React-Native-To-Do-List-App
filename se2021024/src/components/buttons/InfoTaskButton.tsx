@@ -1,12 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   TouchableOpacity,
   Text,
   StyleSheet,
-  Alert,
   Modal,
   View,
 } from 'react-native';
+
 import {useTaskStore} from '../../stores/useTaskStore';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -15,7 +15,7 @@ type Props = {
 };
 
 const InfoTaskButton: React.FC<Props> = ({index}) => {
-  const [modalVisible, setModalVisible] = React.useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
   const task = useTaskStore(state => state.tasks[index]);
 
   return (

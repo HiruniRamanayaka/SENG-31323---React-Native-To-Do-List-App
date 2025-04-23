@@ -1,5 +1,5 @@
 import React from 'react'
-import {StyleSheet, SafeAreaView, Text} from 'react-native'
+import {StyleSheet, SafeAreaView, Text, ScrollView} from 'react-native'
 import TaskInput from '../components/TaskInput'
 import { COLORS } from '../constants/Theme';
 import TaskList from '../components/TaskList';
@@ -7,8 +7,10 @@ import TaskList from '../components/TaskList';
 const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.screen}>
-      <TaskInput />
-      <TaskList />
+      <ScrollView>
+        <TaskInput />
+        <TaskList />
+      </ScrollView>
     </SafeAreaView>
   )
 }

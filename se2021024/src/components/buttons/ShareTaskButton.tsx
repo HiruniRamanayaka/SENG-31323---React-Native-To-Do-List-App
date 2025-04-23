@@ -1,12 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Modal,
   View,
   Share,
   TouchableOpacity,
-  Text,
   StyleSheet,
 } from 'react-native';
+
 import {useTaskStore} from '../../stores/useTaskStore';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -16,7 +16,7 @@ type Props = {
 };
 
 const ShareTaskButton: React.FC<Props> = ({index}) => {
-  const [modalVisible, setModalVisible] = React.useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
   const task = useTaskStore(state => state.tasks[index]);
 
   const handleShare = async () => {

@@ -3,26 +3,22 @@ import {
   View,
   Text,
   StyleSheet,
-  ScrollView,
   TouchableOpacity,
 } from 'react-native';
 
 import {useTaskStore} from '../stores/useTaskStore';
 import {COLORS} from '../constants/theme';
 import DeleteTaskButton from './buttons/DeleteTaskButton';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import InfoTaskButton from './buttons/InfoTaskButton';
 import EditTaskButton from './buttons/EditTaskButton';
 import ShareTaskButton from './buttons/ShareTaskButton';
 
 const TaskList = () => {
   const tasks = useTaskStore(state => state.tasks);
-  const [selectedTaskIndex, setSelectedTaskIndex] = React.useState<
-    number | null
-  >(null);
+  const [selectedTaskIndex, setSelectedTaskIndex] = React.useState<number | null>(null);
 
   return (
-    <ScrollView style={styles.listContainer}>
+    <View style={styles.listContainer}>
       {tasks.length === 0 ? (
         <View style={styles.borderText}>
           <Text style={styles.topBorder}></Text>
@@ -53,22 +49,16 @@ const TaskList = () => {
             <View>
               {selectedTaskIndex === index && (
                 <View style={styles.buttonsRow}>
-                  <View>
                     <ShareTaskButton index={index} />
-                  </View>
-                  <View>
                     <InfoTaskButton index={index} />
-                  </View>
-                  <View>
                     <EditTaskButton index={index} />
-                  </View>
                 </View>
               )}
             </View>
           </View>
         ))
       )}
-    </ScrollView>
+    </View>
   );
 };
 
