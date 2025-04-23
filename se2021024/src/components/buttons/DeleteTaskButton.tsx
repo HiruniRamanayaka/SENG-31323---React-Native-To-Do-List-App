@@ -1,51 +1,63 @@
-import React, { useState } from 'react';
-import { TouchableOpacity, Text, StyleSheet, Alert, Modal, View } from 'react-native';
-import { useTaskStore } from '../stores/useTaskStore';
+import React, {useState} from 'react';
+import {
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  Alert,
+  Modal,
+  View,
+} from 'react-native';
+import {useTaskStore} from '../../stores/useTaskStore';
 
 type Props = {
-    index: number;
+  index: number;
+};
+
+const DeleteTaskButton: React.FC<Props> = ({index}) => {
+  const deleteTask = useTaskStore(state => state.deleteTask);
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const confirmDelete = () => {
+    deleteTask(index);
+    setModalVisible(false);
   };
-
-const DeleteTaskButton: React.FC<Props> = ({ index }) => {
-    const deleteTask = useTaskStore((state => state.deleteTask));
-    const [modalVisible, setModalVisible] = useState(false);
-
-    const confirmDelete = () => {
-      deleteTask(index);
-      setModalVisible(false);
-    }
 
   return (
     <>
-      <TouchableOpacity style={styles.button} onPress={() => setModalVisible(true)}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => setModalVisible(true)}>
         <Text style={styles.deleteButtonText}>x</Text>
       </TouchableOpacity>
 
       <Modal
         transparent={true}
         visible={modalVisible}
-        animationType='fade'
-        onRequestClose={() => setModalVisible(false)}
-      >
+        animationType="fade"
+        onRequestClose={() => setModalVisible(false)}>
         <View style={styles.modalBackground}>
           <View style={styles.modalContainer}>
             <Text style={styles.modalTitle}>Delete This Task?</Text>
             <View style={styles.modalButtons}>
-              <TouchableOpacity style={styles.deleteButton} onPress={confirmDelete}>
-                  <Text style={styles.buttonText}>Yes</Text>
+              <TouchableOpacity
+                style={styles.deleteButton}
+                onPress={confirmDelete}>
+                <Text style={styles.buttonText}>Yes</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.cancelButton} onPress={() => setModalVisible(false)}>
-                  <Text style={styles.buttonText}>No</Text>
-              </TouchableOpacity>  
+              <TouchableOpacity
+                style={styles.cancelButton}
+                onPress={() => setModalVisible(false)}>
+                <Text style={styles.buttonText}>No</Text>
+              </TouchableOpacity>
             </View>
           </View>
         </View>
       </Modal>
     </>
-  )
-}
+  );
+};
 
-export default DeleteTaskButton
+export default DeleteTaskButton;
 
 const styles = StyleSheet.create({
   button: {
@@ -55,9 +67,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 4,
     borderRadius: 5,
-    borderColor: '#A35709', 
-    borderWidth: 2,                
-    padding: 10,    
+    borderColor: '#A35709',
+    borderWidth: 2,
+    padding: 10,
   },
   buttonText: {
     fontSize: 16,
@@ -81,9 +93,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#1F1E1B',
     padding: 20,
     alignItems: 'center',
-    borderColor: '#A35709', 
+    borderColor: '#A35709',
     borderTopWidth: 2,
-    borderRadius: 4,              
+    borderRadius: 4,
     marginBottom: 8,
   },
   modalTitle: {
@@ -105,9 +117,9 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: 10,
     alignItems: 'center',
-    borderColor: '#A35709', 
+    borderColor: '#A35709',
     borderWidth: 1,
-    borderRadius: 8,              
+    borderRadius: 8,
     marginBottom: 8,
   },
   cancelButton: {
@@ -116,10 +128,9 @@ const styles = StyleSheet.create({
     flex: 1,
     marginRight: 10,
     alignItems: 'center',
-    borderColor: '#A35709', 
+    borderColor: '#A35709',
     borderWidth: 1,
-    borderRadius: 8,              
+    borderRadius: 8,
     marginBottom: 8,
   },
 });
-

@@ -1,64 +1,78 @@
-import React from 'react'
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
-import { useTaskStore } from '../stores/useTaskStore';
-import { COLORS } from '../constants/theme';
-import DeleteTaskButton from './DeleteTaskButton';
+import React from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native';
+
+import {useTaskStore} from '../stores/useTaskStore';
+import {COLORS} from '../constants/theme';
+import DeleteTaskButton from './buttons/DeleteTaskButton';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import InfoTaskButton from './InfoTaskButton';
-import EditTaskButton from './EditTaskButton';
-import ShareTaskButton from './ShareTaskButton';
+import InfoTaskButton from './buttons/InfoTaskButton';
+import EditTaskButton from './buttons/EditTaskButton';
+import ShareTaskButton from './buttons/ShareTaskButton';
 
 const TaskList = () => {
-  const tasks = useTaskStore((state) => state.tasks);
-  const [selectedTaskIndex, setSelectedTaskIndex] = React.useState<number | null>(null);
+  const tasks = useTaskStore(state => state.tasks);
+  const [selectedTaskIndex, setSelectedTaskIndex] = React.useState<
+    number | null
+  >(null);
 
   return (
-    <ScrollView style={styles.listContainer}> 
+    <ScrollView style={styles.listContainer}>
       {tasks.length === 0 ? (
         <View style={styles.borderText}>
-            <Text style={styles.topBorder}></Text>
-            <Text style={styles.emptyText}>No tasks</Text>
-            <Text style={styles.bottomBorder}></Text>
+          <Text style={styles.topBorder}></Text>
+          <Text style={styles.emptyText}>No tasks</Text>
+          <Text style={styles.bottomBorder}></Text>
         </View>
-        ) : (
-          tasks.map((task, index) => (
-            <View key={index}>
-              <View  style={styles.taskItem}>
-                <View style={styles.taskItemContainer}>
-                  <TouchableOpacity onPress={() => setSelectedTaskIndex(index === selectedTaskIndex ? null : index)}>
-                    <Text style={styles.taskTitle}>{task.title}</Text>
-                    <Text style={styles.taskAbout}>{task.about}</Text>
-                  </TouchableOpacity>
-                </View>
-                <View style={styles.deleteButton}>
-                  <DeleteTaskButton index={index} />
-                </View>
+      ) : (
+        tasks.map((task, index) => (
+          <View key={index}>
+            <View style={styles.taskItem}>
+              <View style={styles.taskItemContainer}>
+                <TouchableOpacity
+                  onPress={() =>
+                    setSelectedTaskIndex(
+                      index === selectedTaskIndex ? null : index,
+                    )
+                  }>
+                  <Text style={styles.taskTitle}>{task.title}</Text>
+                  <Text style={styles.taskAbout}>{task.about}</Text>
+                </TouchableOpacity>
               </View>
-
-              {/* share, info, edit buttons*/}
-              <View>
-                {selectedTaskIndex === index && (
-                <View style={styles.buttonsRow}>
-                  <View>
-                    <ShareTaskButton index={index}/>
-                  </View>
-                  <View>
-                    <InfoTaskButton index={index}/>
-                  </View>
-                  <View>
-                    <EditTaskButton index={index}/>
-                  </View>
-                </View>
-                )}
+              <View style={styles.deleteButton}>
+                <DeleteTaskButton index={index} />
               </View>
             </View>
-          ))
+
+            {/* share, info, edit buttons*/}
+            <View>
+              {selectedTaskIndex === index && (
+                <View style={styles.buttonsRow}>
+                  <View>
+                    <ShareTaskButton index={index} />
+                  </View>
+                  <View>
+                    <InfoTaskButton index={index} />
+                  </View>
+                  <View>
+                    <EditTaskButton index={index} />
+                  </View>
+                </View>
+              )}
+            </View>
+          </View>
+        ))
       )}
     </ScrollView>
   );
 };
 
-export default TaskList
+export default TaskList;
 
 const styles = StyleSheet.create({
   listContainer: {
@@ -69,9 +83,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#333',
     padding: 12,
     marginBottom: 12,
-    borderColor: '#A35709', 
-    borderWidth: 2,         
-    borderRadius: 6,        
+    borderColor: '#A35709',
+    borderWidth: 2,
+    borderRadius: 6,
     textAlign: 'center',
   },
   taskItemContainer: {
@@ -90,7 +104,7 @@ const styles = StyleSheet.create({
   deleteButton: {
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 5,           
+    padding: 5,
     marginBottom: 8,
   },
   borderText: {
@@ -99,15 +113,15 @@ const styles = StyleSheet.create({
   },
   topBorder: {
     borderBottomColor: '#A35709',
-    borderColor: '#FFA500', 
+    borderColor: '#FFA500',
     borderTopWidth: 2,
-    width: 40,      
+    width: 40,
   },
   bottomBorder: {
     borderBottomColor: '#A35709',
-    borderColor: '#FFA500', 
+    borderColor: '#FFA500',
     borderBottomWidth: 2,
-    width: 40,             
+    width: 40,
   },
   emptyText: {
     textAlign: 'center',
@@ -123,10 +137,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#1F1E1B',
     paddingHorizontal: 10,
     paddingVertical: 6,
-    borderColor: '#A35709', 
-    borderWidth: 1,     
+    borderColor: '#A35709',
+    borderWidth: 1,
     borderRadius: 6,
     marginLeft: 6,
   },
-  
 });
