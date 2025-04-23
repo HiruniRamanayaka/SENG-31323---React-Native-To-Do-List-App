@@ -68,7 +68,7 @@ export default ShareTaskButton;
 const styles = StyleSheet.create({
   modalBackground: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
+    backgroundColor: 'rgba(0,0,0,0.89)',
     justifyContent: 'flex-end',
   },
   container: {
