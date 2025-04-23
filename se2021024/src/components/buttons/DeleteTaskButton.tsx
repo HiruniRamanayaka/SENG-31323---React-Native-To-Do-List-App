@@ -7,10 +7,7 @@ import {
   View,
 } from 'react-native';
 import {useTaskStore} from '../../stores/useTaskStore';
-
-type Props = {
-  index: number;
-};
+import {Props} from '../../types/TaskTypes';
 
 const DeleteTaskButton: React.FC<Props> = ({index}) => {
   const deleteTask = useTaskStore(state => state.deleteTask);

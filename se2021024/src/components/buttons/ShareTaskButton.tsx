@@ -10,10 +10,7 @@ import {
 import {useTaskStore} from '../../stores/useTaskStore';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
-type Props = {
-  index: number;
-};
+import {Props} from '../../types/TaskTypes';
 
 const ShareTaskButton: React.FC<Props> = ({index}) => {
   const [modalVisible, setModalVisible] = useState(false);

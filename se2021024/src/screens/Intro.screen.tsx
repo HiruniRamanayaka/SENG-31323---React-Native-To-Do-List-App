@@ -11,7 +11,7 @@ const IntroScreen = ({navigation}: any) => {
 
   return (
     <ImageBackground
-      source={require('../assets/i2.png')}
+      source={require('../assets/opening-img.png')}
       style={styles.background}
       resizeMode="cover"
     />
@@ -23,7 +23,6 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     height: '100%',
-    
   },
 });
 

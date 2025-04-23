@@ -2,12 +2,7 @@ import React from 'react';
 import {TouchableOpacity, Text, StyleSheet, Alert} from 'react-native';
 import {COLORS} from '../../constants/Theme';
 import {useTaskStore} from '../../stores/useTaskStore';
-
-type AddTaskButtonProps = {
-  title: string;
-  about: string;
-  onSuccess: () => void;
-};
+import {AddTaskButtonProps} from '../../types/TaskTypes';
 
 const AddTaskButton: React.FC<AddTaskButtonProps> = ({
   title,
