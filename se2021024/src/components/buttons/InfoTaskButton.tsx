@@ -10,6 +10,7 @@ import {
 import {useTaskStore} from '../../stores/useTaskStore';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {Props} from '../../types/TaskTypes';
+import styles from '../../styles/componentStyles/buttonStyles/InfoTaskButton.style'
 
 const InfoTaskButton: React.FC<Props> = ({index}) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -20,7 +21,7 @@ const InfoTaskButton: React.FC<Props> = ({index}) => {
       <TouchableOpacity
         style={styles.iconButton}
         onPress={() => setModalVisible(true)}>
-        <Ionicons name="information-outline" size={20} color="#fff" />
+        <Ionicons name="information-outline" size={16} color="#fff" />
       </TouchableOpacity>
 
       <Modal transparent={true} visible={modalVisible} animationType="fade">
@@ -43,55 +44,3 @@ const InfoTaskButton: React.FC<Props> = ({index}) => {
 
 export default InfoTaskButton;
 
-const styles = StyleSheet.create({
-  iconButton: {
-    backgroundColor: '#1F1E1B',
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-    borderColor: '#A35709',
-    borderWidth: 1,
-    borderRadius: 6,
-    marginLeft: 6,
-  },
-  iconText: {
-    color: 'white',
-    fontSize: 16,
-  },
-  modalBackground: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  modalContainer: {
-    backgroundColor: '#1F1E1B',
-    padding: 30,
-    borderRadius: 2,
-    width: 300,
-    borderColor: '#A35709',
-    borderTopWidth: 2,
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#F0E3CA',
-    marginBottom: 12,
-  },
-  content: {
-    fontSize: 16,
-    color: '#F0E3CA',
-    marginBottom: 6,
-  },
-  closeButton: {
-    marginTop: 16,
-    borderColor: '#A35709',
-    backgroundColor: '#1B1A17',
-    borderWidth: 1,
-    padding: 10,
-    borderRadius: 6,
-    alignItems: 'center',
-  },
-  closeText: {
-    color: 'white',
-  },
-});

@@ -3,6 +3,7 @@ import {StyleSheet, SafeAreaView, Text, ScrollView} from 'react-native'
 import TaskInput from '../components/TaskInput'
 import { COLORS } from '../constants/Theme';
 import TaskList from '../components/TaskList';
+import styles from '../styles/screenStyles/HomeScreen.style'
 
 const HomeScreen = () => {
   return (
@@ -16,11 +17,3 @@ const HomeScreen = () => {
 }
 
 export default HomeScreen
-
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    backgroundColor: COLORS.background, 
-    padding: 16,
-  },
-});

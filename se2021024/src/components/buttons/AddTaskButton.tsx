@@ -3,6 +3,7 @@ import {TouchableOpacity, Text, StyleSheet, Alert} from 'react-native';
 import {COLORS} from '../../constants/Theme';
 import {useTaskStore} from '../../stores/useTaskStore';
 import {AddTaskButtonProps} from '../../types/TaskTypes';
+import styles from '../../styles/componentStyles/buttonStyles/AddTaskButton.style'
 
 const AddTaskButton: React.FC<AddTaskButtonProps> = ({
   title,
@@ -30,22 +31,3 @@ const AddTaskButton: React.FC<AddTaskButtonProps> = ({
 };
 
 export default AddTaskButton;
-
-const styles = StyleSheet.create({
-  customButton: {
-    backgroundColor: COLORS.background,
-    borderColor: '#FF8303',
-    borderWidth: 1,
-    borderRadius: 6,
-    padding: 10,
-    marginBottom: 8,
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 96,
-  },
-  buttonText: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: '#FF8303',
-  },
-});

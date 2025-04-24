@@ -1,5 +1,6 @@
 import React, {useEffect, useRef} from 'react'
 import {Animated, ImageBackground, StyleSheet } from 'react-native' 
+import styles from '../styles/screenStyles/IntroScreen.style'
 
 const IntroScreen = ({navigation}: any) => {
   const fadeAnim = useRef(new Animated.Value(1)).current; // Start fully visible
@@ -27,13 +28,5 @@ const IntroScreen = ({navigation}: any) => {
     />
   )
 }
-
-const styles = StyleSheet.create({
-  background: {
-    flex: 1,
-    width: '100%',
-    height: '100%',
-  },
-});
 
 export default IntroScreen
