@@ -12,6 +12,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {Props} from '../../types/TaskTypes';
 import styles from '../../styles/componentStyles/buttonStyles/ShareTaskButton.style'
 
+/* Function of share button */
 const ShareTaskButton: React.FC<Props> = ({index}) => {
   const [modalVisible, setModalVisible] = useState(false);
   const task = useTaskStore(state => state.tasks[index]);
@@ -29,17 +30,21 @@ const ShareTaskButton: React.FC<Props> = ({index}) => {
 
   return (
     <>
+      {/* share icon*/}
       <TouchableOpacity
         style={styles.iconButton}
         onPress={() => setModalVisible(true)}>
         <Ionicons name="share-social" size={16} color="#fff" />
       </TouchableOpacity>
 
+      {/* Popup window for sharing task info*/}
       <Modal transparent={true} visible={modalVisible} animationType="fade">
         <TouchableOpacity
           style={styles.modalBackground}
           activeOpacity={1}
           onPress={() => setModalVisible(false)}>
+          
+          {/* Social Media Icons */}
           <View style={styles.container}>
             <TouchableOpacity style={styles.logoButtons} onPress={handleShare}>
               <Ionicons name="copy-outline" size={20} color="white" />

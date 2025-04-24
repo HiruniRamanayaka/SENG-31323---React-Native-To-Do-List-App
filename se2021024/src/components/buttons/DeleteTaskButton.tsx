@@ -9,6 +9,7 @@ import {useTaskStore} from '../../stores/useTaskStore';
 import {Props} from '../../types/TaskTypes';
 import styles from '../../styles/componentStyles/buttonStyles/DeleteTaskButton.style'
 
+/* Function of delete button */
 const DeleteTaskButton: React.FC<Props> = ({index}) => {
   const deleteTask = useTaskStore(state => state.deleteTask);
   const [modalVisible, setModalVisible] = useState(false);
@@ -20,12 +21,14 @@ const DeleteTaskButton: React.FC<Props> = ({index}) => {
 
   return (
     <>
+      {/* delete button */}
       <TouchableOpacity
         style={styles.button}
         onPress={() => setModalVisible(true)}>
         <Text style={styles.deleteButtonText}>x</Text>
       </TouchableOpacity>
 
+      {/* Confirmation dialog box for deleting a task */}
       <Modal
         transparent={true}
         visible={modalVisible}

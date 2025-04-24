@@ -19,6 +19,7 @@ const TaskInput = () => {
   return (
     <View style={styles.container}>
       <View style={styles.inputContainer}>
+        {/* Title input */}
         <TextInput
           style={styles.input}
           placeholder="Title..."
@@ -26,6 +27,7 @@ const TaskInput = () => {
           value={title}
           onChangeText={setTitle}
         />
+        {/* About input */}
         <TextInput
           style={styles.input}
           placeholder="About..."
@@ -34,6 +36,7 @@ const TaskInput = () => {
           onChangeText={setAbout}
         />
       </View>
+      {/* Add button */}
       <AddTaskButton title={title} about={about} onSuccess={resetFields} />
     </View>
   );

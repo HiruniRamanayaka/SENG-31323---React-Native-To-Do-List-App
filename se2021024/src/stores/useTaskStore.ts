@@ -51,7 +51,7 @@ export const useTaskStore = create<TaskState>()(
       clearTasks: () => set({ tasks: [] }),
     }),
     {
-      name: 'task-storage', // This is your AsyncStorage key
+      name: 'task-storage', // This is the AsyncStorage key
       storage: createJSONStorage(() => AsyncStorage),
     }
   )

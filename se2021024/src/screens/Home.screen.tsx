@@ -3,7 +3,7 @@ import {SafeAreaView, ScrollView} from 'react-native'
 import TaskInput from '../components/TaskInput'
 import TaskList from '../components/TaskList';
 import styles from '../styles/screenStyles/HomeScreen.style';
-import { PaperProvider } from 'react-native-paper';
+import { PaperProvider } from 'react-native-paper';                 // for checkbox 
 
 const HomeScreen = () => {
   return (

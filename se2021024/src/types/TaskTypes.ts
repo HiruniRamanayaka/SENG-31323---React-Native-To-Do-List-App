@@ -5,6 +5,7 @@ export type AddTaskButtonProps = {
   onSuccess: () => void;
 };
 
+// for other components
 export type Props = {
     index: number;
 };

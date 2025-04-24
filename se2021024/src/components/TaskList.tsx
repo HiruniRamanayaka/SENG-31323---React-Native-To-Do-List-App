@@ -21,6 +21,7 @@ const TaskList = () => {
   return (
     <View style={styles.listContainer}>
       {tasks.length === 0 ? (
+        /* When no tasks available */
         <View style={styles.borderText}>
           <Text style={styles.topBorder}></Text>
           <Text style={styles.emptyText}>No tasks</Text>
@@ -36,6 +37,7 @@ const TaskList = () => {
                 onPress={() => toggleTaskCompletion(index)} // Toggle completion when pressed
                 color={COLORS.primary} 
               />
+              {/* Task list */}
               <View style={styles.taskItemContainer}>
                 <TouchableOpacity
                   onPress={() =>
@@ -65,8 +67,9 @@ const TaskList = () => {
                         opacity: 0.6,
                       },
                     ]}
+                    // limit to one sentence
                     numberOfLines={1}
-                    ellipsizeMode="tail"            // limit to one sentence
+                    ellipsizeMode="tail"           
                   >
                     {task.about}
                   </Text>
