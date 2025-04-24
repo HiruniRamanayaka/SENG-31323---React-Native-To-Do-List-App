@@ -60,6 +60,11 @@ const styles = StyleSheet.create({
       justifyContent: 'flex-end',
       marginBottom: 15,
     },
+    checkbox: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginRight: 10,
+    },
   });
 
   export default styles;

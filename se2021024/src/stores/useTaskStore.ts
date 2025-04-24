@@ -7,7 +7,8 @@ type TaskState = {
   tasks: Task[];
   addTask: (task: Task) => void;
   deleteTask: (index: number) => void; 
-  updateTask: (index: number, updatedTask: Task) => void; 
+  updateTask: (index: number, updatedTask: Task) => void;
+  toggleTaskCompletion: (index: number) => void; 
   clearTasks: () => void;
 };
 
@@ -21,7 +22,7 @@ export const useTaskStore = create<TaskState>()(
           tasks: [...state.tasks, task],
         })),
 
-      // Adding tasks
+      // Deleting tasks
       deleteTask: (index: number) =>
         set((state) => ({
             tasks: state.tasks.filter((_, i) => i !== index),
@@ -34,6 +35,17 @@ export const useTaskStore = create<TaskState>()(
           updatedTasks[index] = updatedTask;
           return { tasks: updatedTasks };
         }),
+      
+      // Completing Tasks
+      toggleTaskCompletion: (index) =>
+        set((state) => {
+          const updatedTasks = [...state.tasks];
+          updatedTasks[index] = {
+            ...updatedTasks[index],
+            completed: !updatedTasks[index].completed,
+          };
+          return { tasks: updatedTasks };
+      }),
 
       // Clearing tasks
       clearTasks: () => set({ tasks: [] }),
