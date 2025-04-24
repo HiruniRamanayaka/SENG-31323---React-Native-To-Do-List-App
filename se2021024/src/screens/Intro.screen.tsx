@@ -10,12 +10,12 @@ const IntroScreen = ({navigation}: any) => {
         // Fade out the screen
         Animated.timing(fadeAnim, {
           toValue: 0,
-          duration: 1000, // Smooth fade duration
+          duration: 800, // Smooth fade duration
           useNativeDriver: true,
         }).start(() => {
           navigation.replace('Home'); // Navigate after fade-out
         });
-      }, 4200); // Start fading just before 5s mark
+      }, 2200); // Start fading just before 3s mark
 
       return () => clearTimeout(timer);                        // Cancel the timer if screen is closed early
     }, [])
