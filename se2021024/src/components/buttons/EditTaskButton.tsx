@@ -21,7 +21,7 @@ const EditTaskButton: React.FC<Props> = ({index}) => {
   const [about, setAbout] = useState(task.about);
 
   const handleSave = () => {
-    updateTask(index, {title, about});
+    updateTask(index, { title, about, completed: task.completed });
     setModalVisible(false);
   };
 

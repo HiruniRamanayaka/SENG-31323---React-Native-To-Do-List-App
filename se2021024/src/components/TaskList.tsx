@@ -65,6 +65,8 @@ const TaskList = () => {
                         opacity: 0.6,
                       },
                     ]}
+                    numberOfLines={1}
+                    ellipsizeMode="tail"            // limit to one sentence
                   >
                     {task.about}
                   </Text>
