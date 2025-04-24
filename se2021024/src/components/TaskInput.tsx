@@ -1,11 +1,9 @@
 import React, {useState} from 'react';
 import {
-  StyleSheet,
   View,
   TextInput,
 } from 'react-native';
 
-import {COLORS} from '../constants/Theme';
 import AddTaskButton from './buttons/AddTaskButton';
 import styles from '../styles/componentStyles/TaskInput.style'
 

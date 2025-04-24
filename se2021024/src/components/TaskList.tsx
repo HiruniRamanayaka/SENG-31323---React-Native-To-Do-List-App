@@ -2,12 +2,10 @@ import React from 'react';
 import {
   View,
   Text,
-  StyleSheet,
   TouchableOpacity,
 } from 'react-native';
 
 import {useTaskStore} from '../stores/useTaskStore';
-import {COLORS} from '../constants/theme';
 import DeleteTaskButton from './buttons/DeleteTaskButton';
 import InfoTaskButton from './buttons/InfoTaskButton';
 import EditTaskButton from './buttons/EditTaskButton';

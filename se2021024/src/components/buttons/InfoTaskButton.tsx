@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {
   TouchableOpacity,
   Text,
-  StyleSheet,
   Modal,
   View,
 } from 'react-native';

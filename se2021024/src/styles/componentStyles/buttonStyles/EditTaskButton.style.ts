@@ -3,18 +3,14 @@ import { COLORS } from '../../../constants/Theme';
 
 const styles = StyleSheet.create({
     iconButton: {
-      backgroundColor: '#1F1E1B',
+      backgroundColor: COLORS.darkGray,
       padding: 10,
-      borderColor: '#A35709',
+      borderColor: COLORS.secondary,
       borderWidth: 1,
       borderRadius: 6,
       marginLeft: 6,
       width: 36,
       height: 36,
-    },
-    iconText: {
-      color: 'white',
-      fontSize: 16,
     },
     modalBackground: {
       flex: 1,
@@ -24,25 +20,25 @@ const styles = StyleSheet.create({
       margin: 10,
     },
     modalContainer: {
-      backgroundColor: '#333',
+      backgroundColor: COLORS.darkGray,
       padding: 20,
       width: 360,
       height: 450,
     },
     input: {
-      borderColor: '#A35709',
+      borderColor: COLORS.secondary,
       borderWidth: 1,
-      backgroundColor: '#1F1E1B',
-      color: 'white',
+      backgroundColor: COLORS.darkGray,
+      color: COLORS.white,
       borderRadius: 6,
       marginBottom: 10,
       padding: 8,
     },
     inputAbout: {
-      borderColor: '#A35709',
+      borderColor: COLORS.secondary,
       borderWidth: 1,
-      backgroundColor: '#1F1E1B',
-      color: 'white',
+      backgroundColor: COLORS.darkGray,
+      color: COLORS.white,
       borderRadius: 6,
       marginBottom: 10,
       padding: 8,
@@ -57,8 +53,8 @@ const styles = StyleSheet.create({
       gap: '10',
     },
     buttons: {
-      backgroundColor: '#1F1E1B',
-      borderColor: '#A35709',
+      backgroundColor: COLORS.darkGray,
+      borderColor: COLORS.secondary,
       borderWidth: 1,
       borderRadius: 4,
       padding: 4,
@@ -68,7 +64,7 @@ const styles = StyleSheet.create({
       width: 64,
     },
     buttonText: {
-      color: 'white',
+      color: COLORS.white,
       fontSize: 12,
     },
   });

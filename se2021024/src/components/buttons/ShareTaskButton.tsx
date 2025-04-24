@@ -4,7 +4,6 @@ import {
   View,
   Share,
   TouchableOpacity,
-  StyleSheet,
 } from 'react-native';
 
 import {useTaskStore} from '../../stores/useTaskStore';

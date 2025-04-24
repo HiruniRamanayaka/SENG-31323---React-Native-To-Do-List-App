@@ -4,7 +4,7 @@ import { COLORS } from '../../constants/Theme';
 const styles = StyleSheet.create({
     screen: {
       flex: 1,
-      backgroundColor: COLORS.background, 
+      backgroundColor: COLORS.black, 
       padding: 16,
     },
   });

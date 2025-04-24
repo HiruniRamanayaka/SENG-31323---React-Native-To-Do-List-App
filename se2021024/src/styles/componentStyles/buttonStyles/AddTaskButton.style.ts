@@ -3,8 +3,8 @@ import { COLORS } from '../../../constants/Theme';
 
 const styles = StyleSheet.create({
     customButton: {
-      backgroundColor: COLORS.background,
-      borderColor: '#FF8303',
+      backgroundColor: COLORS.black,
+      borderColor: COLORS.primary,
       borderWidth: 1,
       borderRadius: 6,
       padding: 10,
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     },
     buttonText: {
       fontSize: 36,
-      color: '#FF8303',
+      color: COLORS.primary,
     },
   });
   

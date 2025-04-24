@@ -3,18 +3,14 @@ import { COLORS } from '../../../constants/Theme';
 
 const styles = StyleSheet.create({
     iconButton: {
-      backgroundColor: '#1F1E1B',
+      backgroundColor: COLORS.darkGray,
       padding: 10,
-      borderColor: '#A35709',
+      borderColor: COLORS.secondary,
       borderWidth: 1,
       borderRadius: 6,
       marginLeft: 6,
       width: 36,
       height: 36,
-    },
-    iconText: {
-      color: 'white',
-      fontSize: 16,
     },
     modalBackground: {
       flex: 1,
@@ -23,30 +19,30 @@ const styles = StyleSheet.create({
       alignItems: 'center',
     },
     modalContainer: {
-      backgroundColor: '#1F1E1B',
+      backgroundColor: COLORS.darkGray,
       padding: 30,
       borderRadius: 4,
       width: 300,
-      borderColor: '#A35709',
+      borderColor: COLORS.secondary,
       borderTopWidth: 2,
       marginBottom: 8,
     },
     title: {
       fontSize: 18,
       fontWeight: 'bold',
-      color: '#F0E3CA',
+      color: COLORS.white,
       marginBottom: 12,
       textAlign: 'center',
     },
     content: {
       fontSize: 14,
-      color: '#F0E3CA',
+      color: COLORS.white,
       marginBottom: 6,
     },
     closeButton: {
       marginTop: 16,
-      borderColor: '#A35709',
-      backgroundColor: '#1F1B1E',
+      borderColor: COLORS.secondary,
+      backgroundColor: COLORS.darkGray,
       borderWidth: 1,
       padding: 4,
       borderRadius: 4,
@@ -56,7 +52,7 @@ const styles = StyleSheet.create({
       width: 64,
     },
     closeText: {
-      color: 'white',
+      color: COLORS.white,
       fontSize: 12,
     },
   });

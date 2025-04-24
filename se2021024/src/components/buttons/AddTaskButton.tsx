@@ -1,6 +1,5 @@
 import React from 'react';
-import {TouchableOpacity, Text, StyleSheet, Alert} from 'react-native';
-import {COLORS} from '../../constants/Theme';
+import {TouchableOpacity, Text, Alert} from 'react-native';
 import {useTaskStore} from '../../stores/useTaskStore';
 import {AddTaskButtonProps} from '../../types/TaskTypes';
 import styles from '../../styles/componentStyles/buttonStyles/AddTaskButton.style'

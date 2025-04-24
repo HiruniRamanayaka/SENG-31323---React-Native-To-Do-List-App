@@ -12,31 +12,16 @@ const styles = StyleSheet.create({
     },
     input: {
       fontSize: 14,
-      backgroundColor: '#1F1E1B',
-      borderColor: '#FF8303',
+      backgroundColor: COLORS.darkGray,
+      borderColor: COLORS.primary,
       borderWidth: 1,
       borderRadius: 6,
       padding: 10,
       marginBottom: 8,
-      color: '#F0E3CA', 
+      color: COLORS.white, 
       height: 36,
       paddingVertical: 10,   // adds vertical padding for both placeholder & text
       paddingHorizontal: 12,
-    },
-    taskItem: {
-      backgroundColor: '#333',
-      padding: 12,
-      marginBottom: 8,
-      borderRadius: 8,
-    },
-    taskTitle: {
-      fontSize: 14,
-      fontWeight: 'bold',
-      color: '#fff',
-    },
-    taskAbout: {
-      fontSize: 14,
-      color: '#aaa',
     },
   });
 
