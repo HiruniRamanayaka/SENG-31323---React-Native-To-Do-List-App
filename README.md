@@ -21,7 +21,7 @@ A simple and elegant To-Do List mobile application built using **React Native CL
    > [GitHub repository link](https://github.com/HiruniRamanayaka/SENG-31323---React-Native-To-Do-List-App)
 
   - ## Demo Video
-   > Demo Link: [Add your video link here]
+   > Demo Link: [Video link](https://youtube.com/shorts/U8mNfqfSnpo)
 
   - ## Design Reference
    > Figma Design: [To-Do List Figma](https://www.figma.com/design/eFrMXIfBZ9bZrNkr9fdxC1/To-Do-List--Community----SE-2021-024?node-id=0-1&t=wFGBNllTx7MTgWqj-1)
