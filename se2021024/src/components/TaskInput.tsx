@@ -22,14 +22,14 @@ const TaskInput = () => {
         <TextInput
           style={styles.input}
           placeholder="Title..."
-          placeholderTextColor="#888"
+          placeholderTextColor="#F0E3CAA3"
           value={title}
           onChangeText={setTitle}
         />
         <TextInput
           style={styles.input}
           placeholder="About..."
-          placeholderTextColor="#888"
+          placeholderTextColor="#F0E3CAA3"
           value={about}
           onChangeText={setAbout}
         />
