@@ -55,12 +55,19 @@ npx react-native run-android
 
 src/
 ├── components/     # Reusable UI components
+
 ├── constants/      # App-wide constants (colors)
+
 ├── navigation/     # Navigation stack setup
+
 ├── screens/        # App screens 
+
 ├── store/          # Zustand store (state management)
+
 ├── styles/         # Custom stylesheets
+
 ├── types/          # TypeScript type definitions
+
 └── assets/         # images
 
 ---
